@@ -22,7 +22,7 @@ function MyComponent() {
         />
         <div class="header-input">
           <SearchIcon />
-          <input type="text" placeholder="search facebook..." />
+          <input type="text" placeholder="Search Facebook" />
         </div>
       </div>
       <div class="header-center">

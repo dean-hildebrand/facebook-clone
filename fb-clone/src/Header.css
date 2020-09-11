@@ -65,7 +65,26 @@
   align-items: center;
   padding: 0 30px;
   border-bottom: none;
+  border-bottom: 4px solid #2e81f4;
 }
+
+/* right side of navbar */
+
+.header-info {
+  display: flex;
+  align-items: center;
+}
+
+.header-info h4 {
+  display: flex;
+}
+
+.header-right {
+  display: flex;
+}
+
+
+/*  end right side of navbar */
 
 
 /* end middle icon style */
