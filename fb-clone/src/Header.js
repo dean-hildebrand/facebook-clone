@@ -1,5 +1,4 @@
 import React from "react";
-import HeaderCSS from "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import HomeIcon from "@material-ui/icons/Home";
 import FlagIcon from "@material-ui/icons/Flag";
@@ -26,7 +25,7 @@ function MyComponent() {
           <input type="text" placeholder="search facebook..." />
         </div>
       </div>
-      <div class="header-middle">
+      <div class="header-center">
         <div class="header-option">
         <HomeIcon fontsize="large"/>
         </div>

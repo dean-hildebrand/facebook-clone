@@ -1,3 +1,5 @@
+
+/* header styling */
 .header {
   padding: 15px 20px;
   display: flex;
@@ -20,10 +22,33 @@
   background-color: #CCCC;
   padding: 10px;
   margin-left: 10px;
-  border-radius: 33px;
+  border-radius: 999px;
 }
 
+.header-input input {
+  border: none;
+  background-color: transparent;
+  outline-width: 0;
+
+}
 
 .header-left img {
   height: 40px;
 }
+
+.header-center {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+/* default class name for material ui icons */
+.header-option .MuiSvgIcon-root {
+  color: grey;
+}
+
+.header-option:hover .MuiSvgIcon-root {
+  color: #2e81f4;
+}
+
+/* end of header styling */
