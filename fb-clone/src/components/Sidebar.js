@@ -7,7 +7,7 @@ import PeopleIcon from "@material-ui/icons/People";
 import ChatIcon from "@material-ui/icons/Chat";
 import StorefrontIcon from "@material-ui/icons/Storefront";
 import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
-import ExpandMoreOutlined from "@material-ui/icons/VideoLibrary";
+import ExpandMoreOutlined from "@material-ui/icons/ExpandMoreOutlined";
 
 function Sidebar() {
   return (
