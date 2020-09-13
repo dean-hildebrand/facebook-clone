@@ -41,3 +41,22 @@ width: 100%;
   display: flex;
   justify-content: space-evenly;
 }
+
+.message-sender-option {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  color: grey;
+  margin: 5px;
+}
+
+.message-sender h3 {
+  font-size: medium;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.message-sender-option:hover {
+  background-color: #eff2f5;
+  border-radius: 20px;
+}

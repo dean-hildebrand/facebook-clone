@@ -19,7 +19,7 @@ function MessageSender() {
             className="message-sender-input"
             placeholder="What's on your mind?"
           ></input>
-          <input placeholder="image URL (Optional)"></input>
+          <input placeholder="image URL (Optional)" />
           <button onClick={handleSubmit} type="submit">
             Hidden Submit
           </button>
