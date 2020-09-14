@@ -12,7 +12,7 @@ function App() {
     <div className="app-body">
     <Sidebar />
     <Feed />
-    {/* Widgets*/}
+    <Widgets />
     </div>
     </div>
   );
