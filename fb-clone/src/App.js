@@ -5,10 +5,11 @@ import Sidebar from "./components/Sidebar.js";
 import Feed from "./components/Feed.js";
 import Widgets from "./components/Widgets.js";
 import Login from "./components/Login.js";
+import { useStateValue } from './StateProvider'
 
 function App() {
-  const user = null;
-  return (
+const [{ user }, dispatch] = useStateValue();
+return (
     <div className="app">
       {!user ? (
         <Login />
