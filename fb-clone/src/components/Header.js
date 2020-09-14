@@ -11,9 +11,12 @@ import AddIcon from "@material-ui/icons/Add";
 import ForumIcon from "@material-ui/icons/Forum";
 import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { useStateValue } from '../StateProvider'
 
 
-function MyComponent() {
+
+function Header() {
+  const [{ user }, dispatch] = useStateValue();
   return (
     <div class="header">
       <div class="header-left">
@@ -45,8 +48,8 @@ function MyComponent() {
       </div>
       <div class="header-right">
       <div class="header-info">
-      <Avatar />
-      <h4>Dean Hildebrand</h4>
+      <Avatar src={user.photoURL}/>
+      <h4>{user.displayName}</h4>
       </div>
 
       <IconButton>
@@ -66,4 +69,4 @@ function MyComponent() {
   );
 }
 
-export default MyComponent;
+export default Header;
