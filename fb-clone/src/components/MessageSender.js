@@ -1,39 +1,48 @@
 import React, { useState } from "react";
-
 import "../css/MessageSender.css";
 import { Avatar } from "@material-ui/core";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
-import { useStateValue } from '../StateProvider'
+import db from "./firebase.js";
+import firebase from "firebase";
+import { useStateValue } from "../StateProvider";
 
 function MessageSender() {
   const [{ user }, dispatch] = useStateValue();
-  const [input, setInput] = useState('')
-  const [imageURL, setImageURL] = useState('')
-
+  const [input, setInput] = useState("");
+  const [imageURL, setImageURL] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    setInput('')
-    setImageURL('')
+
+    db.collection("posts").add({
+      message: input,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      profilePic: user.photoURL,
+      username: user.displayName,
+      image: imageURL,
+    });
+
+    setInput("");
+    setImageURL("");
   };
   return (
     <div className="message-sender">
       <div className="message-sender-top">
-        <Avatar src={user.photoURL}/>
+        <Avatar src={user.photoURL} />
         <form>
           <input
-          value={input}
-          onChange={ e => setInput(e.target.value)}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
             className="message-sender-input"
             placeholder={`What's on your mind, ${user.displayName}?`}
           ></input>
           <input
-          placeholder="image URL (Optional)"
-          value={imageURL}
-          onChange={e => setImageURL(e.target.value)} />
+            placeholder="image URL (Optional)"
+            value={imageURL}
+            onChange={(e) => setImageURL(e.target.value)}
+          />
           <button onClick={handleSubmit} type="submit">
             Hidden Submit
           </button>
