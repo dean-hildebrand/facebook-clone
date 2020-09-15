@@ -1,29 +1,37 @@
-import React from 'react'
-import '../css/Feed.css'
-import StoryReel from './StoryReel.js'
-import Post from './Post.js'
-import MessageSender from './MessageSender.js'
+import React, { useState, useEffect } from "react";
+import "../css/Feed.css";
+import StoryReel from "./StoryReel.js";
+import Post from "./Post.js";
+import MessageSender from "./MessageSender.js";
+import db from "./firebase.js";
 
 function Feed() {
+  const [posts, setPosts] = useState([]);
+
+  // grabs the data from the firebase data and maps through it
+  useEffect(() => {
+    db.collection("posts").orderBy('timestamp', 'desc').onSnapshot((snapshot) =>
+      setPosts(snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() })))
+    )
+  }, []);
+
   return (
     <div className="feed">
-    <StoryReel />
-    <MessageSender />
-    <Post
-    profilePic="https://cdn.cnn.com/cnnnext/dam/assets/200615110703-marcus-rashford-manchester-united-exlarge-169.jpg"
-    message="This is awesome"
-    timestamp="This is a timestamp"
-    username="deano88"
-    image="https://i.pinimg.com/originals/55/a1/79/55a179dd73def493a38193fd3cacd278.jpg"
-    />
-    <Post
-    profilePic="https://cdn.cnn.com/cnnnext/dam/assets/200615110703-marcus-rashford-manchester-united-exlarge-169.jpg"
-    message="This is awesome"
-    timestamp="This is a timestamp"
-    username="deano88"
-    />
+      <StoryReel />
+      <MessageSender />
+
+      {posts.map( post => (
+        <Post
+        key={post.id}
+        profilePic={post.data.profilePic}
+        message={post.data.message}
+        timestamp={post.data.timestamp}
+        username={post.data.username}
+        image={post.data.image}
+        />
+      ))}
     </div>
-  )
+  );
 }
 
-export default Feed
+export default Feed;
